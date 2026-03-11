@@ -3,19 +3,18 @@ module.exports = {
   pre: [
     {
       env: "WANGP_ROOT",
-      description: "Enter the path to an existing Wan2GP installation. The directory containing the `wgp.py` file. (e.g., C:\\pinokio\\api\\wan2gp.git\\app). Leave this blank to let the installer perform a fresh setup automatically.",
-      default: ""
+      description: "Enter the path to an existing Wan2GP installation (the folder containing wgp.py), e.g. C:\\pinokio\\api\\wan2gp.git\\app. Or Leave as 'None' for a fresh setup.",
+      default:"None"
     }
   ],
-
   run: [
     {
       method: "shell.run",
       params: {
-        message: "git clone https://github.com/deepbeepmeep/LTX-Desktop-WanGP.git app"
+        message: "git clone https://github.com/deepbeepmeep/LTX-Desktop-WanGP.git app",
       }
     },
-    
+
     {
       method: "shell.run",
       params: {
@@ -24,9 +23,15 @@ module.exports = {
           WANGP_ROOT: "{{envs.WANGP_ROOT}}"
         },
         message: [
-          "pnpm setup:dev:win",
-          "pnpm dev"
+          "pnpm setup:dev:win"
         ]
+      }
+    },
+
+    {
+      method: "notify",
+      params: {
+        html: "Installation complete! Click Start to run LTX-Desktop-WanGP!."
       }
     }
   ]
