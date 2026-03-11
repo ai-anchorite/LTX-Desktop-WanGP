@@ -3,7 +3,7 @@ module.exports = {
   pre: [
     {
       env: "WANGP_ROOT",
-      description: "Enter the path to an existing Wan2GP installation (e.g., C:\\pinokio\\api\\wan2gp.got\\app). Leave this blank to let the installer perform a fresh setup automatically.",
+      description: "Enter the path to an existing Wan2GP installation. The directory containing the `wgp.py` file. (e.g., C:\\pinokio\\api\\wan2gp.git\\app). Leave this blank to let the installer perform a fresh setup automatically.",
       default: ""
     }
   ],
